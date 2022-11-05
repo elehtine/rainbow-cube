@@ -20,6 +20,8 @@ set(PROJECT_SOURCES
         src/mainwindow.h
         src/cubewindow.cpp
         src/cubewindow.h
+        src/cube.cpp
+        src/cube.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

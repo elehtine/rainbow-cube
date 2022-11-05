@@ -3,6 +3,10 @@
 
 #include <QWidget>
 
+#include <QWidget>
+
+#include "cube.h"
+
 class CubeWindow : public QWidget {
   Q_OBJECT
 public:
@@ -15,10 +19,11 @@ protected:
   void paintEvent(QPaintEvent *event) override;
 
 private:
-  const int size = 300;
-  const int faceNum = 6;
+  static const QSize RECT_SIZE;
+  static const int SIDE;
+  static const int FACE_NUM;
 
-  QVector<QColor> faceColors;
+  Cube *cube;
 };
 
 #endif // CUBEWINDOW_H

@@ -1,27 +1,33 @@
 #include "cubewindow.h"
+#include "cube.h"
 
 #include <QPainter>
+#include <QPoint>
 
-CubeWindow::CubeWindow(QWidget *parent) : QWidget(parent) {
-  faceColors = {"yellow", "red", "green", "orange", "blue", "white"};
-  resize(minimumSize());
-}
+const int CubeWindow::FACE_NUM = 6;
+const int CubeWindow::SIDE = 100;
+const QSize CubeWindow::RECT_SIZE = QSize(SIDE, SIDE);
+
+CubeWindow::CubeWindow(QWidget *parent) : QWidget(parent), cube(new Cube) {}
 
 CubeWindow::~CubeWindow() {}
 
-QSize CubeWindow::minimumSizeHint() const { return QSize(4 * size, 3 * size); }
+QSize CubeWindow::minimumSizeHint() const { return QSize(4 * SIDE, 3 * SIDE); }
 
-QSize CubeWindow::sizeHint() const { return QSize(4 * size, 3 * size); }
+QSize CubeWindow::sizeHint() const { return QSize(4 * SIDE, 3 * SIDE); }
 
 void CubeWindow::paintEvent(QPaintEvent *event) {
   QPainter painter(this);
-  QVector<QRect> faceRects = {
-      {size, 0, size, size},        {0, size, size, size},
-      {size, size, size, size},     {2 * size, size, size, size},
-      {3 * size, size, size, size}, {size, 2 * size, size, size},
+  QVector<QPoint> facePoints = {
+      {SIDE, 0},        {0, SIDE},        {SIDE, SIDE},
+      {2 * SIDE, SIDE}, {3 * SIDE, SIDE}, {SIDE, 2 * SIDE},
+  };
+  QVector<QColor> faceColors = {
+      cube->getTop(),  cube->getFront(), cube->getRight(),
+      cube->getBack(), cube->getLeft(),  cube->getDown(),
   };
 
-  for (int i = 0; i < faceNum; ++i) {
-    painter.fillRect(faceRects[i], faceColors[i]);
+  for (int i = 0; i < FACE_NUM; i++) {
+    painter.fillRect(QRect(facePoints[i], RECT_SIZE), faceColors[i]);
   }
 }
