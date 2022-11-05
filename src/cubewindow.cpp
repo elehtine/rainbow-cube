@@ -22,17 +22,8 @@ QSize CubeWindow::sizeHint() const { return QSize(4 * EDGE, 3 * EDGE); }
 
 void CubeWindow::paintEvent(QPaintEvent *event) {
   QPainter painter(this);
-  QVector<QPoint> facePoints = {
-      {EDGE, 0},        {0, EDGE},        {EDGE, EDGE},
-      {2 * EDGE, EDGE}, {3 * EDGE, EDGE}, {EDGE, 2 * EDGE},
-  };
-  QVector<QColor> faceColors = {
-      cube->getTop(),  cube->getFront(), cube->getRight(),
-      cube->getBack(), cube->getLeft(),  cube->getDown(),
-  };
 
   for (int i = 0; i < FACE_NUM; i++) {
-    painter.fillRect(QRect(facePoints[i], RECT_SIZE).translated(SIDE, SIDE),
-                     faceColors[i]);
+    cube->paint(painter);
   }
 }

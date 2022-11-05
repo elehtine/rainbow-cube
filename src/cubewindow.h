@@ -12,6 +12,7 @@ class CubeWindow : public QWidget {
 public:
   explicit CubeWindow(QWidget *parent = nullptr);
   ~CubeWindow();
+
   QSize minimumSizeHint() const override;
   QSize sizeHint() const override;
 

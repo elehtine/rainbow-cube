@@ -1,26 +1,23 @@
 #ifndef CUBE_H
 #define CUBE_H
 
-#include <QColor>
+#include "face.h"
+
+#include <QPainter>
 
 class Cube {
 public:
   Cube();
 
-  QColor getTop() const;
-  QColor getFront() const;
-  QColor getRight() const;
-  QColor getBack() const;
-  QColor getLeft() const;
-  QColor getDown() const;
+  void paint(QPainter &painter) const;
 
 private:
-  QColor top;
-  QColor front;
-  QColor right;
-  QColor back;
-  QColor left;
-  QColor down;
+  Face *top;
+  Face *front;
+  Face *right;
+  Face *back;
+  Face *left;
+  Face *down;
 };
 
 #endif // CUBE_H
