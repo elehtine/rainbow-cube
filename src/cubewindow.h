@@ -20,7 +20,9 @@ protected:
 
 private:
   static const QSize RECT_SIZE;
+  static const QSize FACE_SIZE;
   static const int SIDE;
+  static const int EDGE;
   static const int FACE_NUM;
 
   Cube *cube;
