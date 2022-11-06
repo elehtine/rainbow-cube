@@ -16,6 +16,9 @@ public:
   QSize minimumSizeHint() const override;
   QSize sizeHint() const override;
 
+public slots:
+  void rotateFront();
+
 protected:
   void paintEvent(QPaintEvent *event) override;
 

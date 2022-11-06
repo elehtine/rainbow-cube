@@ -8,7 +8,9 @@
 class Face {
 public:
   Face(QColor color);
+  Face();
   void paint(QPoint offset, QPainter &painter) const;
+  void rotate();
 
 private:
   const QColor center;

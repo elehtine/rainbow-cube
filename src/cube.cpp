@@ -4,8 +4,9 @@
 #include <QPainter>
 
 Cube::Cube() {
-  top = new Face("yellow");
-  front = new Face("red");
+  up = new Face("yellow");
+  // front = new Face("red");
+  front = new Face();
   right = new Face("green");
   back = new Face("orange");
   left = new Face("blue");
@@ -13,10 +14,12 @@ Cube::Cube() {
 }
 
 void Cube::paint(QPainter &painter) const {
-  top->paint({1, 0}, painter);
-  front->paint({0, 1}, painter);
-  right->paint({1, 1}, painter);
-  back->paint({2, 1}, painter);
-  left->paint({3, 1}, painter);
+  up->paint({1, 0}, painter);
+  left->paint({0, 1}, painter);
+  front->paint({1, 1}, painter);
+  right->paint({2, 1}, painter);
+  back->paint({3, 1}, painter);
   down->paint({1, 2}, painter);
 }
+
+void Cube::rotateFront() { front->rotate(); }

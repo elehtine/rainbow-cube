@@ -20,6 +20,11 @@ QSize CubeWindow::minimumSizeHint() const {
 
 QSize CubeWindow::sizeHint() const { return QSize(4 * EDGE, 3 * EDGE); }
 
+void CubeWindow::rotateFront() {
+  cube->rotateFront();
+  update();
+}
+
 void CubeWindow::paintEvent(QPaintEvent *event) {
   QPainter painter(this);
 
