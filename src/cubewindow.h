@@ -17,7 +17,12 @@ public:
   QSize sizeHint() const override;
 
 public slots:
+  void rotateUp();
+  void rotateLeft();
   void rotateFront();
+  void rotateRight();
+  void rotateBack();
+  void rotateDown();
 
 protected:
   void paintEvent(QPaintEvent *event) override;

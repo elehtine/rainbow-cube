@@ -30,6 +30,6 @@ void Face::paint(QPoint offset, QPainter &painter) const {
 }
 
 void Face::rotate() {
-  QList<QColor> next = colors.sliced(2) << colors.first(2);
+  QList<QColor> next = colors.sliced(6) << colors.first(6);
   colors = next;
 }

@@ -21,5 +21,3 @@ void Cube::paint(QPainter &painter) const {
   back->paint({3, 1}, painter);
   down->paint({1, 2}, painter);
 }
-
-void Cube::rotateFront() { front->rotate(); }

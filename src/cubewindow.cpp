@@ -20,8 +20,33 @@ QSize CubeWindow::minimumSizeHint() const {
 
 QSize CubeWindow::sizeHint() const { return QSize(4 * EDGE, 3 * EDGE); }
 
+void CubeWindow::rotateUp() {
+  cube->up->rotate();
+  update();
+}
+
+void CubeWindow::rotateLeft() {
+  cube->left->rotate();
+  update();
+}
+
 void CubeWindow::rotateFront() {
-  cube->rotateFront();
+  cube->front->rotate();
+  update();
+}
+
+void CubeWindow::rotateRight() {
+  cube->right->rotate();
+  update();
+}
+
+void CubeWindow::rotateBack() {
+  cube->back->rotate();
+  update();
+}
+
+void CubeWindow::rotateDown() {
+  cube->down->rotate();
   update();
 }
 

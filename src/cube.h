@@ -11,10 +11,6 @@ public:
 
   void paint(QPainter &painter) const;
 
-public slots:
-  void rotateFront();
-
-private:
   Face *up;
   Face *front;
   Face *right;
