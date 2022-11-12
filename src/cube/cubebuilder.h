@@ -7,6 +7,8 @@ class CubeBuilder {
 public:
   CubeBuilder();
 
+  void lfrFlip();
+  void everyFaceFlip();
   void superFlip();
   Cube getCube();
 

@@ -14,7 +14,7 @@ private:
   CubeBuilder cubeBuilder;
 
 private slots:
-  void initTestCase() { cubeBuilder = CubeBuilder(); }
+  void init() { cubeBuilder = CubeBuilder(); }
 
   void simpleEqualFace() {
     Face first(QColor("red"));
@@ -40,8 +40,25 @@ private slots:
     Cube second = Cube(faces);
     QCOMPARE_EQ(first, second);
   }
+  void lfrFlipTest() {
+    cubeBuilder.lfrFlip();
+    Cube first = cubeBuilder.getCube();
+    QList<QString> faces = {
+        "oyyrrbbo", "bbrwwbbb", "yygwwrrr", "yyoggggg", "bowwwoyy", "ggooowrr",
+    };
+    Cube second = Cube(faces);
+    QCOMPARE_EQ(first, second);
+  }
+  void everyFaceFlipTest() {
+    cubeBuilder.everyFaceFlip();
+    Cube first = cubeBuilder.getCube();
+    QList<QString> faces = {
+        "booggrro", "ybgwwwwy", "yyowwbor", "yybwwrrg", "yyrbrggo", "brggoobb",
+    };
+    Cube second = Cube(faces);
+    QCOMPARE_EQ(first, second);
+  }
   void superFlipTest() {
-    // U R2 F B R B2 R U2 L B2 R U' D' R2 F R' L B2 U2 F2
     cubeBuilder.superFlip();
     Cube first = cubeBuilder.getCube();
     QList<QString> faces = {

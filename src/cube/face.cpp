@@ -36,10 +36,9 @@ void Face::rotate() {
   QList<QColor> next = colors.sliced(6) << colors.first(6);
   colors = next;
 
-  int tempIndex = neighbourStartIndices[0];
   QList<QColor> temp(3);
   for (int i = 0; i < 3; i++) {
-    int index = (tempIndex + i) % COLOR_NUMBER;
+    int index = (neighbourStartIndices[0] + i) % COLOR_NUMBER;
     temp[i] = neighbourFaces[0]->colors[index];
   }
 
@@ -56,7 +55,7 @@ void Face::rotate() {
   Face *last = neighbourFaces[3];
   for (int i = 0; i < 3; i++) {
     int index = (neighbourStartIndices[3] + i) % COLOR_NUMBER;
-    last->colors[index] = temp[(tempIndex + i) % 3];
+    last->colors[index] = temp[i];
   }
 }
 
@@ -87,7 +86,7 @@ char Face::colorToChar(QColor color) {
     return 'o';
   if (color == "white")
     return 'w';
-  return 'b';
+  return 'k';
 }
 
 QColor Face::charToColor(QChar c) {
