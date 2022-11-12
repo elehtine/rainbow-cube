@@ -7,7 +7,7 @@
 
 class Cube {
 public:
-  Cube();
+  Cube(bool test = false);
 
   void paint(QPainter &painter) const;
 

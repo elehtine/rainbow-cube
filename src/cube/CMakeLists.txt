@@ -1,6 +1,8 @@
 add_library(cube STATIC
     cube.cpp
     cube.h
+    cubebuilder.cpp
+    cubebuilder.h
     face.h
     face.cpp
 )

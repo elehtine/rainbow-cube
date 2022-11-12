@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 8.0.2, 2022-11-10T08:47:05. -->
+<!-- Written by QtCreator 8.0.2, 2022-11-11T16:35:22. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -353,7 +353,7 @@
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/elias/projects/rainbow-cube/build-rainbow-cube-Desktop_Qt_6_4_0_GCC_64bit-Debug</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/elias/projects/rainbow-cube/build-rainbow-cube-Desktop_Qt_6_4_0_GCC_64bit-Debug/src/app</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

@@ -8,19 +8,25 @@ MainWindow::MainWindow(QWidget *parent)
   setCentralWidget(cubeWindow);
 
   QMenuBar *menubar = new QMenuBar;
-  QMenu *rotate = menubar->addMenu("rotate");
-  QAction *up = rotate->addAction("up");
-  QAction *left = rotate->addAction("left");
-  QAction *front = rotate->addAction("front");
-  QAction *right = rotate->addAction("right");
-  QAction *back = rotate->addAction("back");
-  QAction *down = rotate->addAction("down");
-  connect(up, &QAction::triggered, cubeWindow, &CubeWindow::rotateUp);
-  connect(left, &QAction::triggered, cubeWindow, &CubeWindow::rotateLeft);
-  connect(front, &QAction::triggered, cubeWindow, &CubeWindow::rotateFront);
-  connect(right, &QAction::triggered, cubeWindow, &CubeWindow::rotateRight);
-  connect(back, &QAction::triggered, cubeWindow, &CubeWindow::rotateBack);
-  connect(down, &QAction::triggered, cubeWindow, &CubeWindow::rotateDown);
+  QAction *up = menubar->addAction("up");
+  QAction *left = menubar->addAction("left");
+  QAction *front = menubar->addAction("front");
+  QAction *right = menubar->addAction("right");
+  QAction *back = menubar->addAction("back");
+  QAction *down = menubar->addAction("down");
+
+  connect(up, &QAction::triggered, this,
+          [this]() { cubeWindow->rotate(CubeWindow::Face::Up); });
+  connect(left, &QAction::triggered, this,
+          [this]() { cubeWindow->rotate(CubeWindow::Face::Left); });
+  connect(front, &QAction::triggered, this,
+          [this]() { cubeWindow->rotate(CubeWindow::Face::Front); });
+  connect(right, &QAction::triggered, this,
+          [this]() { cubeWindow->rotate(CubeWindow::Face::Right); });
+  connect(back, &QAction::triggered, this,
+          [this]() { cubeWindow->rotate(CubeWindow::Face::Back); });
+  connect(down, &QAction::triggered, this,
+          [this]() { cubeWindow->rotate(CubeWindow::Face::Down); });
   setMenuBar(menubar);
 }
 

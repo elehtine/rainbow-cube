@@ -1,5 +1,6 @@
 #include "cubewindow.h"
 #include "cube.h"
+#include "cubebuilder.h"
 
 #include <QPainter>
 #include <QPoint>
@@ -10,7 +11,10 @@ const int CubeWindow::EDGE = SIDE * 3;
 const QSize CubeWindow::FACE_SIZE = QSize(EDGE, EDGE);
 const QSize CubeWindow::RECT_SIZE = QSize(SIDE, SIDE);
 
-CubeWindow::CubeWindow(QWidget *parent) : QWidget(parent), cube(new Cube) {}
+CubeWindow::CubeWindow(QWidget *parent) : QWidget(parent) {
+  CubeBuilder builder;
+  cube = builder.getCube();
+}
 
 CubeWindow::~CubeWindow() {}
 
@@ -20,33 +24,27 @@ QSize CubeWindow::minimumSizeHint() const {
 
 QSize CubeWindow::sizeHint() const { return QSize(4 * EDGE, 3 * EDGE); }
 
-void CubeWindow::rotateUp() {
-  cube->up->rotate();
-  update();
-}
-
-void CubeWindow::rotateLeft() {
-  cube->left->rotate();
-  update();
-}
-
-void CubeWindow::rotateFront() {
-  cube->front->rotate();
-  update();
-}
-
-void CubeWindow::rotateRight() {
-  cube->right->rotate();
-  update();
-}
-
-void CubeWindow::rotateBack() {
-  cube->back->rotate();
-  update();
-}
-
-void CubeWindow::rotateDown() {
-  cube->down->rotate();
+void CubeWindow::rotate(Face face) {
+  switch (face) {
+  case Face::Up:
+    cube.up->rotate();
+    break;
+  case Face::Left:
+    cube.left->rotate();
+    break;
+  case Face::Front:
+    cube.front->rotate();
+    break;
+  case Face::Right:
+    cube.right->rotate();
+    break;
+  case Face::Back:
+    cube.back->rotate();
+    break;
+  case Face::Down:
+    cube.down->rotate();
+    break;
+  }
   update();
 }
 
@@ -54,6 +52,6 @@ void CubeWindow::paintEvent(QPaintEvent *event) {
   QPainter painter(this);
 
   for (int i = 0; i < FACE_NUM; i++) {
-    cube->paint(painter);
+    cube.paint(painter);
   }
 }

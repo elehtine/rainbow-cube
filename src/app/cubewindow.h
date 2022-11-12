@@ -16,13 +16,10 @@ public:
   QSize minimumSizeHint() const override;
   QSize sizeHint() const override;
 
+  enum class Face { Up, Left, Front, Right, Back, Down };
+
 public slots:
-  void rotateUp();
-  void rotateLeft();
-  void rotateFront();
-  void rotateRight();
-  void rotateBack();
-  void rotateDown();
+  void rotate(Face face);
 
 protected:
   void paintEvent(QPaintEvent *event) override;
@@ -34,7 +31,7 @@ private:
   static const int EDGE;
   static const int FACE_NUM;
 
-  Cube *cube;
+  Cube cube;
 };
 
 #endif // CUBEWINDOW_H

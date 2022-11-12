@@ -3,14 +3,22 @@
 
 #include <QPainter>
 
-Cube::Cube() {
-  up = new Face("yellow");
-  // front = new Face("red");
-  front = new Face();
-  right = new Face("green");
-  back = new Face("orange");
-  left = new Face("blue");
-  down = new Face("white");
+Cube::Cube(bool test) {
+  if (test) {
+    up = new Face();
+    front = new Face();
+    right = new Face();
+    back = new Face();
+    left = new Face();
+    down = new Face();
+  } else {
+    up = new Face("yellow");
+    front = new Face("red");
+    right = new Face("green");
+    back = new Face("orange");
+    left = new Face("blue");
+    down = new Face("white");
+  }
 }
 
 void Cube::paint(QPainter &painter) const {
