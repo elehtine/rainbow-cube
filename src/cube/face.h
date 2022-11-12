@@ -12,6 +12,11 @@ public:
   void paint(QPoint offset, QPainter &painter) const;
   void rotate();
 
+  friend bool operator==(const Face &lhs, const Face &rhs);
+  inline friend bool operator!=(const Face &lhs, const Face &rhs) {
+    return !(lhs == rhs);
+  }
+
 private:
   const QColor center;
   static const int SIDE;

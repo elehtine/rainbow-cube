@@ -10,6 +10,10 @@ public:
   Cube(bool test = false);
 
   void paint(QPainter &painter) const;
+  friend bool operator==(const Cube &lhs, const Cube &rhs);
+  inline friend bool operator!=(const Cube &lhs, const Cube &rhs) {
+    return !(lhs == rhs);
+  }
 
   Face *up;
   Face *front;

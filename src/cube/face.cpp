@@ -33,3 +33,15 @@ void Face::rotate() {
   QList<QColor> next = colors.sliced(6) << colors.first(6);
   colors = next;
 }
+
+bool operator==(const Face &lhs, const Face &rhs) {
+  if (lhs.center != rhs.center) {
+    return false;
+  }
+  for (int i = 0; i < Face::COLOR_NUMBER; i++) {
+    if (lhs.colors[i] != rhs.colors[i]) {
+      return false;
+    }
+  }
+  return true;
+}

@@ -29,3 +29,25 @@ void Cube::paint(QPainter &painter) const {
   back->paint({3, 1}, painter);
   down->paint({1, 2}, painter);
 }
+
+bool operator==(const Cube &lhs, const Cube &rhs) {
+  if (*lhs.up != *rhs.up) {
+    return false;
+  }
+  if (*lhs.left != *rhs.left) {
+    return false;
+  }
+  if (*lhs.front != *rhs.front) {
+    return false;
+  }
+  if (*lhs.right != *rhs.right) {
+    return false;
+  }
+  if (*lhs.back != *rhs.back) {
+    return false;
+  }
+  if (*lhs.down != *rhs.down) {
+    return false;
+  }
+  return true;
+}
