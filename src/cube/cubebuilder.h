@@ -8,6 +8,9 @@ public:
   CubeBuilder();
 
   Cube getCube();
+
+private:
+  Cube cube;
 };
 
 #endif // CUBEBUILDER_H
