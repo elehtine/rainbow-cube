@@ -7,6 +7,7 @@ class CubeBuilder {
 public:
   CubeBuilder();
 
+  void superFlip();
   Cube getCube();
 
 private:
