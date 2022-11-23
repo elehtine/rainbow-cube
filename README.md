@@ -40,3 +40,7 @@ clockwise rotation:
 6 5 4      4 3 2
 ```
 This solution makes rotation of faces easy, shifting indices by two.
+
+## License
+
+[GNU General Public License v3.0](LICENSE)
