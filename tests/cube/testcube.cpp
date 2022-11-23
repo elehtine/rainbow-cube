@@ -21,16 +21,19 @@ private slots:
     Face second(QColor("red"));
     QCOMPARE_EQ(first, second);
   }
+
   void simpleUnequalFace() {
     Face first(QColor("red"));
     Face second(QColor("blue"));
     QCOMPARE_NE(first, second);
   }
+
   void equalInitialCube() {
     Cube first = cubeBuilder.getCube();
     Cube second = cubeBuilder.getCube();
     QCOMPARE_EQ(first, second);
   }
+
   void rotateFrontTest() {
     Cube first = cubeBuilder.getCube();
     first.front->rotate();
@@ -40,6 +43,7 @@ private slots:
     Cube second = Cube(faces);
     QCOMPARE_EQ(first, second);
   }
+
   void lfrFlipTest() {
     cubeBuilder.lfrFlip();
     Cube first = cubeBuilder.getCube();
@@ -49,6 +53,7 @@ private slots:
     Cube second = Cube(faces);
     QCOMPARE_EQ(first, second);
   }
+
   void everyFaceFlipTest() {
     cubeBuilder.everyFaceFlip();
     Cube first = cubeBuilder.getCube();
@@ -58,6 +63,7 @@ private slots:
     Cube second = Cube(faces);
     QCOMPARE_EQ(first, second);
   }
+
   void superFlipTest() {
     cubeBuilder.superFlip();
     Cube first = cubeBuilder.getCube();

@@ -3,22 +3,13 @@
 
 #include <QPainter>
 
-Cube::Cube(bool test) {
-  if (test) {
-    up = new Face(QString("roygbroy"));
-    front = new Face(QString("roygbroy"));
-    right = new Face(QString("roygbroy"));
-    back = new Face(QString("roygbroy"));
-    left = new Face(QString("roygbroy"));
-    down = new Face(QString("roygbroy"));
-  } else {
-    up = new Face(QColor("yellow"));
-    front = new Face(QColor("red"));
-    right = new Face(QColor("green"));
-    back = new Face(QColor("orange"));
-    left = new Face(QColor("blue"));
-    down = new Face(QColor("white"));
-  }
+Cube::Cube() {
+  up = new Face(QColor("yellow"));
+  front = new Face(QColor("red"));
+  right = new Face(QColor("green"));
+  back = new Face(QColor("orange"));
+  left = new Face(QColor("blue"));
+  down = new Face(QColor("white"));
 }
 
 Cube::Cube(QList<QString> faces) {
@@ -31,14 +22,11 @@ Cube::Cube(QList<QString> faces) {
 }
 
 char *Cube::toString() const {
-  QString result = QString("%1 %2 %3 %4 %5 %6")
-                       .arg(up->toString())
-                       .arg(left->toString())
-                       .arg(front->toString())
-                       .arg(right->toString())
-                       .arg(back->toString())
-                       .arg(down->toString());
-  return result.toUtf8().data();
+  QString result =
+      QString("%1 %2 %3 %4 %5 %6")
+          .arg(up->toString(), left->toString(), front->toString(),
+               right->toString(), back->toString(), down->toString());
+  return (char *)result.toUtf8().data();
 }
 
 void Cube::paint(QPainter &painter) const {

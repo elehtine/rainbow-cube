@@ -19,7 +19,7 @@ public:
   enum class Face { Up, Left, Front, Right, Back, Down };
 
 public slots:
-  void rotate(Face face);
+  void rotate(CubeWindow::Face face);
 
 protected:
   void paintEvent(QPaintEvent *event) override;

@@ -30,6 +30,8 @@ void Face::paint(QPoint offset, QPainter &painter) const {
     QRect rect(offset * SIDE * 3 + faceOffset, QSize(SIDE, SIDE));
     painter.fillRect(rect, colors[i]);
   }
+  QRect rect(offset * SIDE * 3 + QPoint(SIDE, SIDE), QSize(SIDE, SIDE));
+  painter.fillRect(rect, center);
 }
 
 void Face::rotate() {

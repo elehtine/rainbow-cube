@@ -7,7 +7,7 @@
 
 class Cube {
 public:
-  Cube(bool test = false);
+  Cube();
   Cube(QList<QString> faces);
 
   char *toString() const;
